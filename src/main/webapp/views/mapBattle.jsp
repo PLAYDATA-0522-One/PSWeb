@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.playdata.game.dto.Monster" %>
+<%@ page import="com.playdata.game.dto.User" %>
+<%@ page import="com.playdata.game.dto.UserNow" %><%--
   Created by IntelliJ IDEA.
   User: playdata
   Date: 2023-06-20
@@ -25,11 +27,27 @@
 </header>
 
 <div class= mapdata>
+<%--  <%if(request.getAttribute("monster")!=null){%>--%>
+<%--  <% Monster monster = (Monster) request.getAttribute("monster");%>--%>
+<%--  <%if (monster.getName().equals("빨간달팽이")){%>--%>
+<%--  <img  src="img/redsnail.jpg" alt="redsnail">--%>
+<%--  <%} else if (monster.getName().equals("파랑달팽이")){%>--%>
+<%--  <img  src="img/redsnail.jpg" alt="redsnail">--%>
+<%--  <%}%>--%>
+<%--&lt;%&ndash;  이제 복사 붙여넣기만 하면 됨.&ndash;%&gt;--%>
+<%--  <%}%>--%>
+<%--// 이제 여기에 사진 넣고,--%>
+<%--// 이런식으로 사진 추가하기--%>
+
+<%--  <%}%>--%>
 <%--  ${monster.~~} ==빨간돼지--%>
 
-  <c:if test="${sessionScope.get('직업') == '전사'}">
-    <img  src="img/warrior.png" alt="warrior">
-  </c:if>
+<%--<%if(request.getAttribute("user") !=null){&ndash;%&gt;--%>
+<%--   UserNow user = (UserNow) request.getAttribute("user");--%>
+<%--   if(user.isChar_dead())%> &lt;%&ndash;  유저나우든 유저든 직업이 있어야함.&ndash;%&gt;--%>
+<%--<%}%>--%>
+
+
 
   <% int a = (int) (Math.random()*3); %>
 
@@ -40,6 +58,14 @@
 <%}else if(a == 2){%>
   <img  class = map_spot src="img/battle3.jpg" alt="battle">
   <%}%>
+
+  <%if (session.getAttribute("usermessage")!=null) {%>
+  <div>
+    <img class="talk" src = "img/talk.png" alt = "talk" >
+    <h1 class="talk_word"><%=(String) session.getAttribute("usermessage")%> </h1>
+  </div>
+  <%}%>
+
 
   <img  class = character_frame src="img/warrior.png" alt="warrior">
   <div class = battle_frame>

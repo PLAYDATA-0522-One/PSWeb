@@ -119,5 +119,45 @@
     <servlet-name>templeServlet</servlet-name>
     <url-pattern>/temple</url-pattern>
   </servlet-mapping>
+<!--여기 밑으로는 태웅님 것-->
+  <servlet>
+    <servlet-name>mainServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mainServlet</servlet-name>
+    <url-pattern>/main1</url-pattern>
+  </servlet-mapping>
 
+  <servlet>
+    <servlet-name>fightServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.FightServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fightServlet</servlet-name>
+    <url-pattern>/fight</url-pattern>
+  </servlet-mapping>
+
+
+
+  <servlet>
+    <servlet-name>healServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.HealServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>healServlet</servlet-name>
+    <url-pattern>/heal</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>inventoryServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.InventoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>inventoryServlet</servlet-name>
+    <url-pattern>/inventory</url-pattern>
+  </servlet-mapping>
+
+
+<!--여기까지-->
 </web-app>
