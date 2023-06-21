@@ -1,0 +1,16 @@
+.job {
+    position: absolute;
+    width: 1146px;
+    height: 458px;
+    top: 825px;
+    left:50%;
+    transform:translateX(-50%);
+}
+.job_info {
+    position: absolute;
+    width: 1145px;
+    height: 1306px;
+    top: 1390px;
+    left:50%;
+    transform:translateX(-50%);
+}
