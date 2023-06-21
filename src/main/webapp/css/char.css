@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.bodycolor {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(180.96deg, #000000 0.82%, #4a2800 129.1%);
+}
+
+
+.joystick1 {
+    position: absolute;
+    width: 80vw;
+    height: 500px;
+    top: 40%;
+    left: 55%;
+    background-image: url("/img/thief.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    pointer-events: none;
+}
+.joystick2 {
+    position: absolute;
+    width: 80vw;
+    height: 500px;
+    top: 40%;
+    left: 15%;
+    background-image: url("/img/Wizard.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    pointer-events: none;
+}
+.joystick3 {
+    position: absolute;
+    width: 80vw;
+    height: 500px;
+    top: 40%;
+    right: 45%;
+    background-image: url("/img/worrior.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.top {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    text-decoration: none;
+}
+
+.aboutus {
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 0;
+    text-decoration: none;
+    margin-left: 20px;
+
+}
+
+.headerbutton {
+    background-color: #fa9021;
+    height: 36px;
+    width: 132px;
+    top: 1%;
+    border-radius: 6px;
+    border: 0;
+}
+.headerbutton:hover {
+    background-color: #45a049;
+}
+
+.headerbuttonlogin {
+    position: absolute;
+    right: 12%;
+    bottom: 98.25%;
+}
+
+.headerbuttonsignup {
+    position: absolute;
+    right: 1.5%;
+    bottom: 98.25%;
+}
+
+.headerbuttonfont {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.mainfont {
+    font-family: "Poppins";
+    color: #f5eded;
+    font-style: normal;
+}
+
+.main_text_img {
+    position: absolute;
+    width: 527px;
+    height: 289px;
+    left: 12%;
+    top: 380px;
+}
