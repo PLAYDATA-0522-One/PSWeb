@@ -47,7 +47,7 @@ public class MonsterDao {
     }
     public int randomMonster() //어떤 몬스터인지 확인
     {
-        int ran = (int)(Math.random() * 12+1);
+        int ran = (int)(Math.random() * 11+1);
 
         return ran;
     }

@@ -119,6 +119,15 @@
     <servlet-name>templeServlet</servlet-name>
     <url-pattern>/temple</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>bossServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.bossServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>bossServlet</servlet-name>
+    <url-pattern>/boss</url-pattern>
+  </servlet-mapping>
 <!--여기 밑으로는 태웅님 것-->
   <servlet>
     <servlet-name>mainServlet</servlet-name>

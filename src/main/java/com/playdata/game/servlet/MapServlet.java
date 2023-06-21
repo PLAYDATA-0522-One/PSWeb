@@ -52,7 +52,15 @@ public class MapServlet extends HttpServlet {
 
         int [] XY = new MapMove().moving(mode,y,x);
 
-            if (XY[0] > map.getMap().length -1 || XY[1] > map.getMap()[0].length -1
+        System.out.println(XY[0]);
+        System.out.println(XY[1]);
+        System.out.println(0000);
+        System.out.println(map.getMap().length-1);
+        System.out.println(map.getMap()[0].length-1);
+
+            if((XY[0] == map.getMap().length-1) && (XY[1] == map.getMap()[0].length-1) ){
+                resp.sendRedirect("/boss");
+            } else if (XY[0] > map.getMap().length -1 || XY[1] > map.getMap()[0].length -1
             || XY[0] < 0|| XY[1] < 0){
                 XY[0] = y;
                 XY[1] = x;

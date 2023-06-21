@@ -27,37 +27,31 @@
 </header>
 
 <div class= mapdata>
-<%--  <%if(request.getAttribute("monster")!=null){%>--%>
-<%--  <% Monster monster = (Monster) request.getAttribute("monster");%>--%>
-<%--  <%if (monster.getName().equals("빨간달팽이")){%>--%>
-<%--  <img  src="img/redsnail.jpg" alt="redsnail">--%>
-<%--  <%} else if (monster.getName().equals("파랑달팽이")){%>--%>
-<%--  <img  src="img/redsnail.jpg" alt="redsnail">--%>
-<%--  <%}%>--%>
-<%--&lt;%&ndash;  이제 복사 붙여넣기만 하면 됨.&ndash;%&gt;--%>
-<%--  <%}%>--%>
-<%--// 이제 여기에 사진 넣고,--%>
-<%--// 이런식으로 사진 추가하기--%>
+  <%--  <%if(request.getAttribute("monster")!=null){%>--%>
+  <%--  <% Monster monster = (Monster) request.getAttribute("monster");%>--%>
+  <%--  <%if (monster.getName().equals("빨간달팽이")){%>--%>
+  <%--  <img  src="img/redsnail.jpg" alt="redsnail">--%>
+  <%--  <%} else if (monster.getName().equals("파랑달팽이")){%>--%>
+  <%--  <img  src="img/redsnail.jpg" alt="redsnail">--%>
+  <%--  <%}%>--%>
+  <%--&lt;%&ndash;  이제 복사 붙여넣기만 하면 됨.&ndash;%&gt;--%>
+  <%--  <%}%>--%>
+  <%--// 이제 여기에 사진 넣고,--%>
+  <%--// 이런식으로 사진 추가하기--%>
 
-<%--  <%}%>--%>
-<%--  ${monster.~~} ==빨간돼지--%>
+  <%--  <%}%>--%>
+  <%--  ${monster.~~} ==빨간돼지--%>
 
-<%--<%if(request.getAttribute("user") !=null){&ndash;%&gt;--%>
-<%--   UserNow user = (UserNow) request.getAttribute("user");--%>
-<%--   if(user.isChar_dead())%> &lt;%&ndash;  유저나우든 유저든 직업이 있어야함.&ndash;%&gt;--%>
-<%--<%}%>--%>
+  <%--<%if(request.getAttribute("user") !=null){&ndash;%&gt;--%>
+  <%--   UserNow user = (UserNow) request.getAttribute("user");--%>
+  <%--   if(user.isChar_dead())%> &lt;%&ndash;  유저나우든 유저든 직업이 있어야함.&ndash;%&gt;--%>
+  <%--<%}%>--%>
 
 
 
-  <% int a = (int) (Math.random()*3); %>
 
-<% if(a == 0){%>
-  <img  class = map_spot src="img/battle2.jpg" alt="battle">
-<%}else if(a == 1){%>
-  <img  class = map_spot src="img/battle.jpg" alt="battle">
-<%}else if(a == 2){%>
-  <img  class = map_spot src="img/battle3.jpg" alt="battle">
-  <%}%>
+  <img  class = map_spot src="img/battleboss.jpg" alt="battle">
+
 
   <%if (session.getAttribute("usermessage")!=null) {%>
   <div>
@@ -65,7 +59,7 @@
     <h1 class="talk_word"><%=(String) session.getAttribute("usermessage")%> </h1>
   </div>
   <%}%>
-<%UserNow user = (UserNow) session.getAttribute("userNow");%>
+  <%UserNow user = (UserNow) session.getAttribute("userNow");%>
 
   <img  class = character_frame src="img/warrior.png" alt="warrior">
   <div class = battle_frame>
@@ -74,15 +68,15 @@
     <h2 class = condition_1>HP</h2>
     <h1 class = condition_2> <%=user.getNow_hp()%>/ <%=user.getHp()%></h1>
     <h3 class = condition_3>경험치 <%=user.getExp()%>/100</h3>
-    <form class="battle_frame_btn_1" action="/battle" method="post">
+    <form class="battle_frame_btn_1" action="/boss" method="post">
       <input type="hidden" name = 'action' value="1">
-    <input type ='submit' value="공격하기" class = battle_frame_btn_1>
+      <input type ='submit' value="공격하기" class = battle_frame_btn_1>
     </form>
-    <form class="battle_frame_btn_2" action="/battle" method="post">
+    <form class="battle_frame_btn_2" action="/boss" method="post">
       <input type="hidden" name = 'action' value="2">
       <input type ='submit' value="방어하기" class = battle_frame_btn_1>
     </form>
-    <form class="battle_frame_btn_3" action="/battle" method="post">
+    <form class="battle_frame_btn_3" action="/boss" method="post">
       <input type="hidden" name = 'action' value="3">
       <input type ='submit' value="도구사용" class = battle_frame_btn_1>
     </form>

@@ -95,7 +95,11 @@ public class UserNow {
     }
 
     public int getAttackpoint() {
-        int result = (int)Math.random()*attackpoint + (int)attackpoint/2;
+        return attackpoint; // 기존 어택포인트 랜덤 반경 추가함.
+    }
+
+    public int attack() {
+        int result = (int)(Math.random()*attackpoint) + (int)(attackpoint/2);
         return result; // 기존 어택포인트 랜덤 반경 추가함.
     }
 

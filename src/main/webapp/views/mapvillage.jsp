@@ -30,10 +30,20 @@
     <img  src="img/warrior.png" alt="warrior">
   </c:if>
   <img  class = map_spot src="img/village.jpg" alt="village">
+
+  <%if (session.getAttribute("usermessage")!=null) {%>
+  <div>
+    <img class="talk" src = "img/talk.png" alt = "talk" >
+    <h1 class="talk_word"><%=(String) session.getAttribute("usermessage")%> </h1>
+  </div>
+  <%}%>
   <img  class = character_frame src="img/warrior.png" alt="warrior">
 
   <div class = battle_frame>
     <img class = battle_frame_in src="img/battle_frame.png" alt="battle_frame">
+    <h2 class = condition>골드 <%=request.getAttribute("gold")%></h2>
+    <h2 class = condition_1>HP</h2>
+    <h1 class = condition_2> <%=request.getAttribute("nowHealth")%>/ <%=request.getAttribute("Health")%></h1>
     <form class="battle_frame_btn_1" action="/village" method="post">
       <input type="hidden" name = 'action' value="1">
       <input type ='submit' value="상점가기" class = battle_frame_btn_1>
