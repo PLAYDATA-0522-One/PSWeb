@@ -27,7 +27,7 @@ public class MapServlet extends HttpServlet {
         }// 맵 생성 및 세션에 넣기
 
         if(session.getAttribute("userNow") == null){
-            UserNow userNow = new UserNow(1, "user", 1, 500, 0, 50, 0, 0, 10, false, false);
+            UserNow userNow = new UserNow(1, "user", 1, 500, 0, 50, 10,3);
             new CharDao().addUserData(userNow);
             session.setAttribute("userNow",userNow);
         } // 유저 세션에 넣기 원래는 받아와야함. 즉 생성 자체를 다른 곳에서 해야함.

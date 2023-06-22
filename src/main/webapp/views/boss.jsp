@@ -51,7 +51,20 @@
 
 
   <img  class = map_spot src="img/battleboss.jpg" alt="battle">
+    <div class = monster_boss>
+      <%if(request.getAttribute("monster")!=null){%>
+      <% Monster monster = (Monster) request.getAttribute("monster");%>
+      <%if (monster.getName().equals("크림슨발록")){ %>
+      <img style="width: 900px" src="img/crimebal.png" alt="crimebal">
+      <%}%>
+      <%--  이제 복사 붙여넣기만 하면 됨.--%>
+      <div class="monster_bossinfo">
+      <h2>체력<%= monster.getNow_hp()%> / <%=monster.getHp()%> </h2>
+      <h2>공격력<%=monster.getAttackpoint()%> </h2>
+      </div>
+  <%}%>
 
+    </div>
 
   <%if (session.getAttribute("usermessage")!=null) {%>
   <div>
@@ -64,9 +77,9 @@
   <img  class = character_frame src="img/warrior.png" alt="warrior">
   <div class = battle_frame>
     <img class = battle_frame_in src="img/battle_frame.png" alt="battle_frame">
-    <h2 class = condition>공격력 <%=user.getAttackpoint()%></h2>
-    <h2 class = condition_1>HP</h2>
-    <h1 class = condition_2> <%=user.getNow_hp()%>/ <%=user.getHp()%></h1>
+    <h3 class = condition>공격력 <%=user.getAttackpoint()%></h3>
+    <h3 class = condition_1>HP <%=user.getNow_hp()%>/ <%=user.getHp()%></h3>
+    <h3 class = condition_2>포션 개수 <%=user.getPortion()%></h3>
     <h3 class = condition_3>경험치 <%=user.getExp()%>/100</h3>
     <form class="battle_frame_btn_1" action="/boss" method="post">
       <input type="hidden" name = 'action' value="1">

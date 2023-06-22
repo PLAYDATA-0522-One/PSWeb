@@ -18,6 +18,7 @@ public class VillageServlet extends HttpServlet {
         req.setAttribute("gold",userNow.getGold());
         req.setAttribute("nowHealth",userNow.getNow_hp());
         req.setAttribute("Health",userNow.getHp());
+        req.setAttribute("portion",userNow.getPortion());
 
         req.getRequestDispatcher("views/mapvillage.jsp").forward(req,resp);
     }

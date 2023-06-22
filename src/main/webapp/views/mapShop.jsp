@@ -39,9 +39,9 @@
   <img  class = character_frame src="img/warrior.png" alt="warrior">
   <div class = battle_frame>
     <img class = battle_frame_in src="img/battle_frame.png" alt="battle_frame">
-    <h2 class = condition>골드 <%=request.getAttribute("gold")%></h2>
-    <h2 class = condition_1>HP</h2>
-    <h1 class = condition_2> <%=request.getAttribute("nowHealth")%>/ <%=request.getAttribute("Health")%></h1>
+    <h3 class = condition>골드 <%=request.getAttribute("gold")%></h3>
+    <h3 class = condition_1>HP <%=request.getAttribute("nowHealth")%>/ <%=request.getAttribute("Health")%></h3>
+    <h3 class = condition_2>포션 개수 <%=request.getAttribute("portion")%></h3>
     <form class="battle_frame_btn_1" action="/shop" method="post">
       <input type="hidden" name = 'action' value="1">
       <input type ='submit' value="구매하기" class = battle_frame_btn_1>

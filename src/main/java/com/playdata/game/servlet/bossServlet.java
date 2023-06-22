@@ -86,12 +86,7 @@ public class bossServlet extends HttpServlet {
 
         if (userNow.getNow_hp() <= 0) //0이되면 죽는다. 참고로 내가 먼저 죽는다.
         {// 바로 게임오버 페이지로
-            session.setAttribute("monster",null);// 몬스터초기화
-            //여기서 유저 저장해야함?
-            session.setAttribute("userNow",null);// 유저 초기화
-
-            session.setAttribute("map",null);
-            session.setAttribute("coordinate",null);
+            resp.sendRedirect("/gameover");
 
         } else if (monster.getNow_hp() < 0) { // 적의 hp를 체크한다
             session.setAttribute("usermessage", null);
