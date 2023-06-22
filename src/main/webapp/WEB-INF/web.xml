@@ -66,6 +66,7 @@
     <servlet-name>IdCheck</servlet-name>
     <url-pattern>/idCheck</url-pattern>
   </servlet-mapping>
+
   <servlet>
     <servlet-name>CreateServlet</servlet-name>
     <servlet-class>com.playdata.game.servlet.CreateServlet</servlet-class>
@@ -82,4 +83,86 @@
     <servlet-name>SelectServlet</servlet-name>
     <url-pattern>/select</url-pattern>
   </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>mapServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.MapServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>mapServlet</servlet-name>
+    <url-pattern>/map</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>vilageServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.VillageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vilageServlet</servlet-name>
+    <url-pattern>/village</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>BattleServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.BattleServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>BattleServlet</servlet-name>
+    <url-pattern>/battle</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShopServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.ShopServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ShopServlet</servlet-name>
+    <url-pattern>/shop</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>templeServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.TempleServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>templeServlet</servlet-name>
+    <url-pattern>/temple</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>bossServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.bossServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>bossServlet</servlet-name>
+    <url-pattern>/boss</url-pattern>
+  </servlet-mapping>
+<!--여기 밑으로는 태웅님 것-->
+  <servlet>
+    <servlet-name>mainServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mainServlet</servlet-name>
+    <url-pattern>/main1</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+
+<!--여기까지-->
+
 </web-app>

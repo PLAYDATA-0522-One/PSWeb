@@ -24,7 +24,7 @@
     <div>
         <img class="main_text_img " src="img/Group1312.png" alt="main_text">
         <img class="job" src="img/gamejob.png" alt="gamejob">
-        <a href=""><button class="start_button">Game Start</button></a>
+        <a href="/create"><button class="start_button">Game Start</button></a>
         <!-- <a href=""><button></button></a> -->
         <img class="job_info" src="/img/jobinfo.png" alt="jobinfo">
     </div>

@@ -123,6 +123,65 @@ public class CharacterDao {
             }
         }
     }
+    public Character getCharacter(String name,int id)
+    {
+        Connection conn = new JdbcConnection().getJdbc();
+        String name2=null;
+        Integer id2=null;
+        Integer level2=null;
+        Integer attackpoint2=null;
+        Integer hp2=null;
+        String job2=null;
+        String sql = "select id, name,level,attackpoint,hp,job " +
+                "from chara " +
+                "where id=? and name=? ";
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.setString(2,name);
+            ResultSet resultSet = pst.executeQuery();
+            while (resultSet.next()){
+                id2= resultSet.getInt("id");
+                name2=resultSet.getString("name");
+                level2 = resultSet.getInt("level");
+                attackpoint2 = resultSet.getInt("attackpoint");
+                hp2 = resultSet.getInt("hp");
+                job2= resultSet.getString("job");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Character character = new Character();
+        return character;
+    }
+    public Job getJobStat(String name)
+    {
+        Connection conn = new JdbcConnection().getJdbc();
+        Integer id2=null;
+        Integer attackpoint2=null;
+        Integer hp2=null;
+        String name2=null;
+        Integer level2=null;
+        String sql = "select id, name ,attackpoint,hp,level " +
+                "from jobs " +
+                "where name=?";
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, name);
+            ResultSet resultSet = pst.executeQuery();
+            while (resultSet.next()){
+                id2=resultSet.getInt("id");
+                name2= resultSet.getString("name");
+                attackpoint2=resultSet.getInt("attackpoint");
+                hp2=resultSet.getInt("hp");
+                level2=resultSet.getInt("level");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Job job=new Job(id2,attackpoint2,hp2,name2,level2);
+        return job;
+    }
 
     public List<Character> findByCharacter1(String uname, String job) {
         List<Character> characters = new ArrayList<Character>();

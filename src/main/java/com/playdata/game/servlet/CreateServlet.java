@@ -23,6 +23,8 @@ public class CreateServlet extends HttpServlet {
         String job = req.getParameter("job");
         int hp;
         int attackPoint;
+        int uid = (Integer) req.getSession().getAttribute("uid");
+        int id = (Integer) req.getSession().getAttribute("id");
 
         // 직업에 따라 hp와 attackPoint 설정
         if ("전사".equals(job)) {
@@ -47,6 +49,8 @@ public class CreateServlet extends HttpServlet {
 
             // 세션에 캐릭터 정보 저장
             HttpSession session = req.getSession();
+            session.getAttribute("id", id);
+            session.setAttribute("uid", uid);
             session.setAttribute("level", level);
             session.setAttribute("uname", uname);
             session.setAttribute("job", job);

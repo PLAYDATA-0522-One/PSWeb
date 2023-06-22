@@ -1,7 +1,7 @@
 package com.playdata.game.dto;
 
 public class Character {
-
+    private int id;
     private int uid;
     private int level;
     private String uname;
@@ -9,6 +9,13 @@ public class Character {
     private int hp;
     private int attackPoint;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getUid() {
         return uid;

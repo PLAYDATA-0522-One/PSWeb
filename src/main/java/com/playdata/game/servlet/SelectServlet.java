@@ -1,7 +1,9 @@
 package com.playdata.game.servlet;
 
+
 import com.playdata.game.dao.CharacterDao;
 import com.playdata.game.dto.Character;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -47,3 +49,4 @@ public class SelectServlet extends HttpServlet {
         resp.sendRedirect("/select");
     }
 }
+
