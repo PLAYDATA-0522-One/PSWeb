@@ -2,7 +2,6 @@ package com.playdata.game.servlet;
 
 import com.playdata.game.dao.CharDao;
 import com.playdata.game.dao.MonsterDao;
-import com.playdata.game.dao.UserDao;
 import com.playdata.game.dto.Monster;
 import com.playdata.game.dto.UserNow;
 
@@ -52,8 +51,7 @@ public class BattleServlet extends HttpServlet {
             int changeMonsterHp = 0;
             int changeCharacterHp = 0; // 넣을 값을 세팅한다.
             int attack =0;
-            int takenDa = 0;
-            int giveDa = 0;
+
             if (mode == 1) { // 공격
                 attack = monster.attack();
 

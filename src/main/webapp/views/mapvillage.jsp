@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.playdata.game.dto.UserNow" %><%--
   Created by IntelliJ IDEA.
   User: playdata
   Date: 2023-06-20
@@ -26,9 +26,7 @@
 
 <div class= mapdata>
 
-  <c:if test="${sessionScope.get('직업') == '전사'}">
-    <img  src="img/warrior.png" alt="warrior">
-  </c:if>
+
   <img  class = map_spot src="img/village.jpg" alt="village">
 
   <%if (session.getAttribute("usermessage")!=null) {%>
@@ -37,7 +35,15 @@
     <h1 class="talk_word"><%=(String) session.getAttribute("usermessage")%> </h1>
   </div>
   <%}%>
+  <%UserNow user = (UserNow) session.getAttribute("userNow");%>
+  <% String job = (String) session.getAttribute("job");%>
+  <% if(job.equals("전사")){%>
   <img  class = character_frame src="img/warrior.png" alt="warrior">
+  <%}else if(job.equals("마법사")){%>
+  <img  class = character_frame src="img/magician.png" alt="warrior">
+  <%}else if(job.equals("도적")){%>
+  <img  class = character_frame src="img/Thief.png" alt="warrior">
+  <%}%>
 
   <div class = battle_frame>
     <img class = battle_frame_in src="img/battle_frame.png" alt="battle_frame">

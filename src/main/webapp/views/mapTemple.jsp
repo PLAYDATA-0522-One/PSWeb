@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.playdata.game.dto.UserNow" %><%--
   Created by IntelliJ IDEA.
   User: playdata
   Date: 2023-06-20
@@ -38,7 +38,15 @@
   </div>
   <%}%>
 
+  <%UserNow user = (UserNow) session.getAttribute("userNow");%>
+  <% String job = (String) session.getAttribute("job");%>
+  <% if(job.equals("전사")){%>
   <img  class = character_frame src="img/warrior.png" alt="warrior">
+  <%}else if(job.equals("마법사")){%>
+  <img  class = character_frame src="img/magician.png" alt="warrior">
+  <%}else if(job.equals("도적")){%>
+  <img  class = character_frame src="img/Thief.png" alt="warrior">
+  <%}%>
   <div class = battle_frame>
     <img class = battle_frame_in src="img/battle_frame.png" alt="battle_frame">
     <h3 class = condition>골드 <%=request.getAttribute("gold")%></h3>

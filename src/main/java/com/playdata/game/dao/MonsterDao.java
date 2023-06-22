@@ -21,7 +21,7 @@ public class MonsterDao {
         Integer drop_per2=null;
         Integer exp2=null;
         Integer now_hp2=null;
-        String sql = "select id, name, hp, attackpoint,drop_per,exp,now_hp " +
+        String sql = "select id, name, hp, attackpoint,drop_per,exp " +
                 "from monster " +
                 "where id=?";
         try {
@@ -35,14 +35,13 @@ public class MonsterDao {
                 attackpoint2=resultSet.getInt("attackpoint");
                 drop_per2=resultSet.getInt("drop_per");
                 exp2=resultSet.getInt("exp");
-                now_hp2=resultSet.getInt("now_hp");
 
 
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-         Monster monster = new Monster(id2,name2,hp2,attackpoint2,drop_per2,exp2,now_hp2);
+         Monster monster = new Monster(id2,name2,hp2,attackpoint2,drop_per2,exp2);
         return monster;
     }
     public int randomMonster() //어떤 몬스터인지 확인

@@ -8,7 +8,7 @@ public class Monster {
     private int attackpoint;
     private int drop_per;
     private int exp;
-    private static int now_hp;
+    private int now_hp;
 
     @Override
     public String toString() {
@@ -84,13 +84,13 @@ public class Monster {
         this.now_hp = now_hp;
     }
 
-    public Monster(int id, String name, int hp, int attackpoint, int drop_per, int exp, int now_hp) {
+    public Monster(int id, String name, int hp, int attackpoint, int drop_per, int exp) {
         this.id = id;
         this.name = name;
         this.hp = hp;
+        this.now_hp = hp;
         this.attackpoint = attackpoint;
         this.drop_per = drop_per;
         this.exp = exp;
-        this.now_hp = now_hp;
     }
 }

@@ -160,7 +160,7 @@
   <servlet>
     <servlet-name>inventoryServlet</servlet-name>
     <servlet-class>com.playdata.game.servlet.InventoryServlet</servlet-class>
-  </servlet>
+  </servlet>uid
   <servlet-mapping>
     <servlet-name>inventoryServlet</servlet-name>
     <url-pattern>/inventory</url-pattern>
