@@ -48,8 +48,6 @@ public class BattleServlet extends HttpServlet {
         UserNow userNow = (UserNow) session.getAttribute("userNow");
         Monster monster = (Monster) session.getAttribute("monster");
 
-        System.out.println(monster.getName());
-        System.out.println(userNow.getNow_hp());
 
             int changeMonsterHp = 0;
             int changeCharacterHp = 0; // 넣을 값을 세팅한다.
@@ -82,18 +80,30 @@ public class BattleServlet extends HttpServlet {
                 changeCharacterHp += 5;
 
                 userNow.setNow_hp(changeCharacterHp);
-                session.setAttribute("usermessage", "방어도 때론 좋은 수단이지");
+                session.setAttribute("usermessage", "방어도 좋은 수단이지");
+            } else if (mode == 3 && userNow.getPortion() == 0) {
+                session.setAttribute("usermessage", "포션이 없어,정신차려");
+
+            } else if (mode == 3 && userNow.getPortion() > 0){
+                attack = monster.attack();
+                changeCharacterHp = userNow.getNow_hp() - attack;
+                // 장비 가져오기, 장비가 있을시, 특정 이벤트 생각중
+
+                changeCharacterHp += 50;
+                userNow.setPortion(userNow.getPortion() -1);
+                if(changeCharacterHp > userNow.getHp()){
+                    userNow.setNow_hp(userNow.getHp());
+                }else{
+                    userNow.setNow_hp(changeCharacterHp);
+                }
+
+                session.setAttribute("usermessage", "몸이 회복되는 느낌이군");
             }
 
 
-            if (userNow.getNow_hp() <= 0) //0이되면 죽는다. 참고로 내가 먼저 죽는다.
-            {// 바로 게임오버 페이지로
-                session.setAttribute("monster",null);// 몬스터초기화
-                //여기서 유저 저장해야함?
-                session.setAttribute("userNow",null);// 유저 초기화
-
-                session.setAttribute("map",null);
-                session.setAttribute("coordinate",null);
+        if (userNow.getNow_hp() <= 0) //0이되면 죽는다. 참고로 내가 먼저 죽는다.
+            {
+                resp.sendRedirect("/gameover");
 
             } else if (monster.getNow_hp() < 0) { // 적의 hp를 체크한다
                 session.setAttribute("usermessage", null);
@@ -113,7 +123,7 @@ public class BattleServlet extends HttpServlet {
                 userNow.setGold(nowgold + dropgold);
                 // 골드도 받아와라
 
-                new CharDao().dropEquipment(monster);
+//                new CharDao().dropEquipment(monster);
                 // 장비 추가, 바로 추가된다.
                 // 여기서 유저에게 장비가 추가된다.
                 // db에 존재하고, 세션에는 존재하지 않는다.
@@ -121,7 +131,7 @@ public class BattleServlet extends HttpServlet {
                 session.setAttribute("userNow", userNow);
                 //set을해야하나? 그냥 맵에서 읽어오는게 나은데.
 
-                new CharDao().addUserData(userNow); /// 이게 유저 업데이트이다.
+                new CharDao().setUserData(userNow); /// 이게 유저 업데이트이다.
                 // 여기서 유저의 값을 한번 업데이트 해야함.
                 // 세션과 데이터 모두.
                 session.setAttribute("monster",null);// 몬스터초기화

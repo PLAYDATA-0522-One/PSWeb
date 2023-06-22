@@ -139,24 +139,23 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>fightServlet</servlet-name>
-    <servlet-class>com.playdata.game.servlet.FightServlet</servlet-class>
+    <servlet-name>GameOverServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.GameOverServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>fightServlet</servlet-name>
-    <url-pattern>/fight</url-pattern>
+    <servlet-name>GameOverServlet</servlet-name>
+    <url-pattern>/gameover</url-pattern>
   </servlet-mapping>
-
-
 
   <servlet>
-    <servlet-name>healServlet</servlet-name>
-    <servlet-class>com.playdata.game.servlet.HealServlet</servlet-class>
+    <servlet-name>GameClearServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.GameClearServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>healServlet</servlet-name>
-    <url-pattern>/heal</url-pattern>
+    <servlet-name>GameClearServlet</servlet-name>
+    <url-pattern>/clear</url-pattern>
   </servlet-mapping>
+
 
   <servlet>
     <servlet-name>inventoryServlet</servlet-name>

@@ -29,7 +29,7 @@
   <c:if test="${sessionScope.get('직업') == '전사'}">
     <img  src="img/warrior.png" alt="warrior">
   </c:if>
-  <img  class = map_spot src="img/temple.png" alt="shop">
+  <img  class = map_spot src="img/temple.jpg" alt="shop">
 
   <%if (session.getAttribute("usermessage")!=null) {%>
   <div>
@@ -41,9 +41,9 @@
   <img  class = character_frame src="img/warrior.png" alt="warrior">
   <div class = battle_frame>
     <img class = battle_frame_in src="img/battle_frame.png" alt="battle_frame">
-    <h2 class = condition>골드 <%=request.getAttribute("gold")%></h2>
-    <h2 class = condition_1>HP</h2>
-    <h1 class = condition_2> <%=request.getAttribute("nowHealth")%>/ <%=request.getAttribute("Health")%></h1>
+    <h3 class = condition>골드 <%=request.getAttribute("gold")%></h3>
+    <h3 class = condition_1>HP<%=request.getAttribute("nowHealth")%>/ <%=request.getAttribute("Health")%></h3>
+
     <form class="battle_frame_btn_1" action="/temple" method="post">
       <input type="hidden" name = 'action' value="1">
       <input type ='submit' value="치료(50G)" class = battle_frame_btn_1>

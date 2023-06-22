@@ -33,6 +33,7 @@
 }
 
 td{
+    FONT-SIZE: 30PX;
     width: 100px;
     border: 1px solid red;
     text-align: center;
@@ -157,22 +158,53 @@ td{
     left: 80px;
     top: 30px;
 }
-
-.condition{
+.monster{
+    left: 700px;
     top: 40px;
+    width: 200px;
+    position: absolute;
+}
+.monster_boss{
+    left: 350px;
+    width: 200px;
+    position: absolute;
+}
+.monster_bossinfo{
+    text-align: center;
+    left: 400PX;
+    top: 370PX;
+    width: 220px;
+    HEIGHT: 120PX;
+    position: absolute;
+    BORDER-RADIUS: 10PX;
+    background-color: WHITE;
+}
+
+.monster_info{
+    text-align: center;
+    left: 100PX;
+    top: 320PX;
+    width: 220px;
+    HEIGHT: 120PX;
+    position: absolute;
+    BORDER-RADIUS: 10PX;
+    background-color: WHITE;
+}
+.condition{
+    top: 27px;
     width: 200px;
     left: -200px;
     position: absolute;
 }
 .condition_1{
-    left: -200px;
+    left: -198px;
     width: 200px;
     position: absolute;
 }
 .condition_2{
     font-size: 20px;
-    left: -100px;
-    top: 11px;
+    left: -200px;
+    top: 50px;
     width: 200px;
     position: absolute;
 }
@@ -181,4 +213,16 @@ td{
     top: 80px;
     width: 200px;
     position: absolute;
+}
+
+.gameset{
+    width: 100%;
+
+}
+
+.gameset_1{
+    position: absolute;
+    top: 600px;
+    left: 45%;
+    transform: translateX(-50%);
 }

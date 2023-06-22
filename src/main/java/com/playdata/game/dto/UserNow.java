@@ -1,18 +1,15 @@
 package com.playdata.game.dto;
 
 public class UserNow {
-    public int uid;
-    public String uname;
-    public int level;
-    public int hp;
-    public int exp;
-    public int gold;
-    public int now_x;
-    public int now_y;
-    public int attackpoint;
-    public int now_hp;
-    public boolean now_battle;
-    public boolean char_dead;
+    private int uid;
+    private String uname;
+    private int level;
+    private int hp;
+    private int exp;
+    private int gold;
+    private int attackpoint;
+    private int now_hp;
+  private  int portion;
 
     public int getUid() {
         return uid;
@@ -27,12 +24,8 @@ public class UserNow {
                 ", hp=" + hp +
                 ", exp=" + exp +
                 ", gold=" + gold +
-                ", now_x=" + now_x +
-                ", now_y=" + now_y +
                 ", attackpoint=" + attackpoint +
                 ", now_hp=" + now_hp +
-                ", now_battle=" + now_battle +
-                ", char_dead=" + char_dead +
                 '}';
     }
 
@@ -78,21 +71,7 @@ public class UserNow {
         this.gold = gold;
     }
 
-    public int getNow_x() {
-        return now_x;
-    }
 
-    public void setNow_x(int now_x) {
-        this.now_x = now_x;
-    }
-
-    public int getNow_y() {
-        return now_y;
-    }
-
-    public void setNow_y(int now_y) {
-        this.now_y = now_y;
-    }
 
     public int getAttackpoint() {
         return attackpoint; // 기존 어택포인트 랜덤 반경 추가함.
@@ -115,23 +94,15 @@ public class UserNow {
         this.now_hp = now_hp;
     }
 
-    public boolean isNow_battle() {
-        return now_battle;
+    public int getPortion() {
+        return portion;
     }
 
-    public void setNow_battle(boolean now_battle) {
-        this.now_battle = now_battle;
+    public void setPortion(int portion) {
+        this.portion = portion;
     }
 
-    public boolean isChar_dead() {
-        return char_dead;
-    }
-
-    public void setChar_dead(boolean char_dead) {
-        this.char_dead = char_dead;
-    }
-
-    public UserNow(int uid, String uname, int level, int hp, int exp, int gold, int now_x, int now_y, int attackpoint, boolean now_battle, boolean char_dead) {
+    public UserNow(int uid, String uname, int level, int hp, int exp, int gold, int attackpoint, int portion) {
         this.uid = uid;
         this.uname = uname;
         this.level = level;
@@ -139,10 +110,8 @@ public class UserNow {
         this.now_hp = hp;
         this.exp = exp;
         this.gold = gold;
-        this.now_x = now_x;
-        this.now_y = now_y;
         this.attackpoint = attackpoint;
-        this.now_battle = now_battle;
-        this.char_dead = char_dead;
+        this.portion = portion;
+
     }
 }
