@@ -8,32 +8,123 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterDao {
-    public Character insert(String uname, String job, int hp, int attackPoint) {
-        Connection conn = new JdbcConnection().getJdbc();
-        String sql = "INSERT INTO characters(uname, job, hp, attackPoint) VALUES (?, ?, ?, ?)";
+    private static final String URL = "jdbc:mysql://localhost:3306/game";
+    private static final String USERNAME = "your_username";
 
+
+
+    public static List<Character> findByCharacter(String uname, String job) {
+        List<Character> characters = new ArrayList<Character>();
+        Connection conn = new JdbcConnection().getJdbc();
+        String sql = "SELECT * FROM characters WHERE uname = ? AND job = ?";
         try {
-            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, uname);
             pst.setString(2, job);
-            pst.setInt(3, hp);
-            pst.setInt(4, attackPoint);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int level = rs.getInt("level");
+
+                // Character 객체 생성 및 필드 설정
+                Character character = new Character();
+                character.setUid(id);
+                character.setLevel(level);
+                character.setUname(uname);
+                character.setJob(job);
+                characters.add(character);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return characters;
+    }
+    public Character insert(int level, String uname, String job, int hp, int attackPoint) {
+        Connection conn = new JdbcConnection().getJdbc();
+        String sql = "INSERT INTO characters(level, uname, job, hp, attackPoint) VALUES (?, ?, ?, ?, ?)";
+
+        PreparedStatement pst = null;
+        try {
+            pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pst.setInt(1, level);
+            pst.setString(2, uname);
+            pst.setString(3, job);
+            pst.setInt(4, hp);
+            pst.setInt(5, attackPoint);
             pst.executeUpdate();
 
             ResultSet generatedKeys = pst.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int id = generatedKeys.getInt(1);
+
+                // 생성된 캐릭터 객체를 반환
                 Character character = new Character();
+                character.setLevel(level);
+                character.setUname(uname);
+                character.setJob(job);
+                character.setHp(hp);
+                character.setAttackPoint(attackPoint);
                 return character;
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to insert character", e);
+        } finally {
+            // 리소스 해제
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return null; // 새로운 캐릭터 객체가 반환되지 않도록 수정해야 함
+        return null;
 
     }
+    public void createCharacter(Character character) {
+        Connection conn = new JdbcConnection().getJdbc();
+        String sql = "INSERT INTO characters (uname, job, level) VALUES (?, ?, ?)";
 
-    public List<Character> findByCharacter(String uname, String job) {
+        PreparedStatement pst = null;
+        System.out.println(character.toString());
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, character.getUname());
+            pst.setString(2, character.getJob());
+            pst.setInt(3, character.getLevel());
+
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to create character", e);
+        } finally {
+            // 리소스 해제
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public List<Character> findByCharacter1(String uname, String job) {
         List<Character> characters = new ArrayList<Character>();
         Connection conn = new JdbcConnection().getJdbc();
         String sql = "SELECT * FROM characters WHERE uname = ? AND job = ?";
@@ -82,7 +173,7 @@ public class CharacterDao {
 
     public void update(Character character) {
         Connection conn = new JdbcConnection().getJdbc();
-        String sql = "UPDATE characters SET level = ?, uname = ?, job = ?, hp = ?, attackPoint = ?, image = ? WHERE uid = ?";
+        String sql = "UPDATE characters SET level = ?, uname = ?, job = ?, hp = ?, attackPoint = ? WHERE uid = ?";
 
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -91,8 +182,7 @@ public class CharacterDao {
             pst.setString(3, character.getJob());
             pst.setInt(4, character.getHp());
             pst.setInt(5, character.getAttackPoint());
-            pst.setString(6, character.getImage());
-            pst.setInt(7, character.getUid());
+            pst.setInt(6, character.getUid());
 
             pst.executeUpdate();
         } catch (SQLException e) {
@@ -114,3 +204,4 @@ public class CharacterDao {
     }
 
 }
+

@@ -8,7 +8,6 @@ public class Character {
     private String job;
     private int hp;
     private int attackPoint;
-    private String image;
 
 
     public int getUid() {
@@ -35,9 +34,7 @@ public class Character {
         return attackPoint;
     }
 
-    public String getImage() {
-        return image;
-    }
+
 
     public void setUid(int uid) {
         this.uid = uid;
@@ -63,9 +60,7 @@ public class Character {
         this.attackPoint = attackPoint;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+
 
 
     @Override
@@ -77,7 +72,6 @@ public class Character {
                 ", job='" + job + '\'' +
                 ", hp=" + hp +
                 ", attackPoint=" + attackPoint +
-                ", image='" + image + '\'' +
                 '}';
     }
 

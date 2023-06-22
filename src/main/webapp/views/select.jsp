@@ -1,4 +1,8 @@
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="com.playdata.game.dao.CharacterUtil" %>
+<%@ page import="com.playdata.game.dao.CharacterDao" %>
+<%@ page import="com.playdata.game.dto.Character" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,7 @@
       STORY
     </p>
     <p class="mainfont aboutus">About us</p>
+
     <button
             class="headerbutton headerbuttonfont headerbuttonlogin mainfont"
     >
@@ -29,27 +34,23 @@
   </div>
 </header>
 <div class="container">
+  <%-- Display characters dynamically --%>
+  <%
+    List<Character> characters = (List<Character>) session.getAttribute("characters");
+    if (characters != null && !characters.isEmpty()) {
+      for (Character character : characters) {
+  %>
   <div class="item">
-    <img src="/img/warrior.png" alt="Character 1" />
-    <div class="job-name">닉네임</div>
-  </div>
-  <div class="item">
-    <img src="/img/warrior.png" alt="Character 2" />
-    <div class="job-name">닉네임</div>
-  </div>
-  <div class="item">
-    <img src="/img/warrior.png" alt="Character 3" />
-    <div class="job-name">닉네임</div>
-  </div>
-  <div class="item">
-    <div class="job-name">캐릭터 4</div>
-  </div>
-  <div class="item">
-    <div class="job-name">캐릭터 5</div>
-  </div>
-  <div class="item">
-    <div class="job-name">캐릭터 6</div>
-  </div>
+<%--    <h1><%=character.getJob()%></h1>--%>
+    <img src="<%= CharacterUtil.getImageUrl(character.getJob()) %>" alt="Character" />
+    <div class="job-name">Level: <%= character.getLevel() %><br />
+      Nickname: <%= character.getUname() %></div>
+  <%-- Closing tag for item --%>
+  <% } %>
+    <%
+      }
+    %>
+  <%-- Closing tag for container --%>
 </div>
 </body>
 </html>

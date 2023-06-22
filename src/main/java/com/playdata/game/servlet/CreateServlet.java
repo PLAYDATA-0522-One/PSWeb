@@ -18,7 +18,8 @@ public class CreateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String uname = req.getParameter("uname");
+        int level =(Integer) req.getSession().getAttribute("level");
+        String uname = req.getParameter("name");
         String job = req.getParameter("job");
         int hp;
         int attackPoint;
@@ -30,21 +31,28 @@ public class CreateServlet extends HttpServlet {
         } else if ("마법사".equals(job)) {
             hp = 100;
             attackPoint = 20;
-        } else {
-            // 기본값 설정
+        } else if ("도적".equals(job)) {
             hp = 120;
             attackPoint = 18;
+        } else {
+            hp = 100;
+            attackPoint = 10;
         }
 
-        CharacterDao characterDao = new CharacterDao();
-        Character character = characterDao.insert(uname, job, hp, attackPoint);
+        if (uname == null || job == null || uname.length() == 0 || job.length() == 0) {
+            resp.sendRedirect("/create");
+        } else {
+            CharacterDao characterDao = new CharacterDao();
+            Character character = characterDao.insert(level, uname, job, hp, attackPoint);
 
-        // 세션에 캐릭터 정보 저장
-        HttpSession session = req.getSession();
-        session.setAttribute("uname", uname);
-        session.setAttribute("job", job);
-        session.setAttribute("character", character);
+            // 세션에 캐릭터 정보 저장
+            HttpSession session = req.getSession();
+            session.setAttribute("level", level);
+            session.setAttribute("uname", uname);
+            session.setAttribute("job", job);
+            session.setAttribute("character", character);
 
-        resp.sendRedirect("/create");
+            resp.sendRedirect("/select");
+        }
     }
 }
