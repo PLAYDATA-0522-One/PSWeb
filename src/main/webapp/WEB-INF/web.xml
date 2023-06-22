@@ -66,5 +66,20 @@
     <servlet-name>IdCheck</servlet-name>
     <url-pattern>/idCheck</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <servlet-name>CreateServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.CreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateServlet</servlet-name>
+    <url-pattern>/create</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SelectServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.SelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectServlet</servlet-name>
+    <url-pattern>/select</url-pattern>
+  </servlet-mapping>
 </web-app>
