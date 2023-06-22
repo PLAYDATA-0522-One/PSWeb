@@ -54,20 +54,17 @@
             <div class="character-selection">
                 <div class="job" onclick="showJobInfo(this)">
                     <h2>전사</h2>
-                    <p>체력: 150</p>
-                    <p>공격력: 15</p>
+
                     <img src="/img/warrior.png" alt="전사 이미지">
                 </div>
                 <div class="job" onclick="showJobInfo(this)">
                     <h2>마법사</h2>
-                    <p>체력: 100</p>
-                    <p>공격력: 20</p>
+
                     <img src="/img/magician.png" alt="마법사 이미지">
                 </div>
                 <div class="job" onclick="showJobInfo(this)">
                     <h2>도적</h2>
-                    <p>체력: 120</p>
-                    <p>공격력: 18</p>
+
                     <img src="/img/Thief.png" alt="도적 이미지">
                 </div>
             </div>
