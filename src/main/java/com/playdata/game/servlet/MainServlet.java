@@ -20,6 +20,6 @@ public class MainServlet extends HttpServlet {
 
         String uname = (String) session.getAttribute("uname");
         req.setAttribute("uname", uname);
-        req.getRequestDispatcher("views/main.html").forward(req, resp);
+        req.getRequestDispatcher("views/main.jsp").forward(req, resp);
     }
 }

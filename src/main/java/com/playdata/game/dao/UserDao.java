@@ -84,7 +84,7 @@ public class UserDao    {
         }
         return new User(id,username,password,name,createAt);
     }
-//    public void update (User user) {
+    //    public void update (User user) {
 //        Connection conn = new JdbcConnection().getJdbc();
 //
 //        String sql = "update users\n" +

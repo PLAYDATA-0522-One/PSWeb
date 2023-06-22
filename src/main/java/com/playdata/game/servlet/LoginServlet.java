@@ -23,12 +23,14 @@ public class LoginServlet extends HttpServlet {
         User user = new UserDao().login(username, password);
 
         HttpSession session = req.getSession();
-        System.out.println(user.getId());
-        req.setAttribute("id", user.getId());
-        session.setAttribute("uname", user.getName());
-        session.setAttribute("id", user.getId());
+
+
 
         if (user != null) {
+            req.setAttribute("id", user.getId());
+            session.setAttribute("uname", user.getName());
+            session.setAttribute("id", user.getId());
+
             resp.sendRedirect("/logout");
         }else {
             resp.sendRedirect("/signup");
