@@ -18,7 +18,8 @@
 
 .hero_text {
     position: absolute;
-    left: 30%;
-    top: 0.8%;
-
+    left:12%;
+    top: 312px;
+    font-size: 25px;
+    font-weight: 600;
 }

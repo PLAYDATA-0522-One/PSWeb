@@ -169,4 +169,13 @@
 
 
 <!--여기까지-->
+  <servlet>
+    <servlet-name>AboutUsServlet</servlet-name>
+    <servlet-class>com.playdata.game.servlet.AboutUsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AboutUsServlet</servlet-name>
+    <url-pattern>/aboutus</url-pattern>
+  </servlet-mapping>
+
 </web-app>
